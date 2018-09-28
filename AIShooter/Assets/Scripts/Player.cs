@@ -72,6 +72,7 @@ public class Player : MonoBehaviour {
         }
     }
 
+    // AI
     public void Shoot()
     {
         if(currentWeapon)
@@ -80,6 +81,7 @@ public class Player : MonoBehaviour {
         }
     }
 
+    // AI
     public void StopShooting()
     {
         if (currentWeapon)
@@ -88,6 +90,7 @@ public class Player : MonoBehaviour {
         }
     }
 
+    // AI
     public void Reload()
     {
         if (currentWeapon)
@@ -105,6 +108,7 @@ public class Player : MonoBehaviour {
         }
     }
 
+    // AI
     public void SetMovementSpeed(float multiplier = 1)
     {
         multiplier = Mathf.Clamp(multiplier, 0, 1);
@@ -112,6 +116,13 @@ public class Player : MonoBehaviour {
         navAgent.speed = speed;
     }
 
+    // AI
+    public void Setdestination(Vector3 destination)
+    {
+        navAgent.SetDestination(destination);
+    }
+
+    // AI
     public bool RotateWeapon(Vector3 lookAtPoint, float threshold, float multiplier = 1)
     {
         if (currentWeapon)
@@ -156,6 +167,7 @@ public class Player : MonoBehaviour {
         return false;
     }
 
+    // AI
     public bool CanDetect(Player p)
     {
         foreach(Detector detector in playerDetectors)
@@ -168,6 +180,7 @@ public class Player : MonoBehaviour {
         return false;
     }
 
+    // AI
     public void Crouch(bool toggle)
     {
         if(toggle && !crouched)
