@@ -26,7 +26,14 @@ public class Player : MonoBehaviour {
 
     private void Awake()
     {
-        foreach(Detector d in playerDetectors)
+        foreach (Detector d in gameObject.GetComponentsInChildren<Detector>())
+        {
+            if(!playerDetectors.Contains(d))
+            {
+                playerDetectors.Add(d);
+            }
+        }
+        foreach (Detector d in playerDetectors)
         {
             d.parentObject = this.gameObject;
         }

@@ -18,7 +18,7 @@ public class Detector : MonoBehaviour {
         List<Player> pList = GetDetectedOfType<Player>();
         foreach (Player p in pList)
         {
-            Debug.DrawLine(transform.position, p.transform.position, Color.red);
+            Debug.DrawLine(transform.position, p.transform.position, Color.yellow);
         }
         List<Pickup> pUList = GetDetectedOfType<Pickup>();
         foreach (Pickup p in pUList)
