@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     public List<Weapon> playerWeapons;
     public List<Detector> playerDetectors;
     public Detectable highLevelCollider;
+    public Dictionary<string, Transform> bodyParts = new Dictionary<string, Transform>();
 
     private Dictionary<string, Weapon> weaponKeys = new Dictionary<string, Weapon>();
     private Dictionary<string, Weapon> inventory = new Dictionary<string, Weapon>();
@@ -32,6 +33,10 @@ public class Player : MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
+        foreach(HitBox limb in gameObject.GetComponentsInChildren<HitBox>())
+        {
+            bodyParts.Add(limb.name, limb.transform);
+        }
         foreach(Weapon w in playerWeapons)
         {
             WeaponData wData = w.data;
@@ -97,6 +102,12 @@ public class Player : MonoBehaviour {
         {
             currentWeapon.Reload();
         }
+    }
+
+    // AI
+    public bool IsReloading()
+    {
+        return currentWeapon.IsReloading();
     }
 
     public void AddWeaponToInventory(string weaponName)
@@ -205,6 +216,12 @@ public class Player : MonoBehaviour {
             transform.localScale = new Vector3(transform.localScale.x, 1, transform.localScale.z);
             crouched = false;
         }
+    }
+
+    // AI 
+    public bool IsCrouching()
+    {
+        return crouched;
     }
 
     public float GetAccuracyMultiplier()

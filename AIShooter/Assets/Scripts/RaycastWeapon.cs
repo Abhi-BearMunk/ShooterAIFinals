@@ -25,7 +25,7 @@ public class RaycastWeapon : Weapon {
         {
             RaycastHit hit;
             Vector3 shootDirection = data.muzzle.forward + transform.right * Random.Range(-1f, 1f) * (1 - currentAccuracy * movementMultiplier * data.owner.GetAccuracyMultiplier()) / (currentAccuracy * movementMultiplier * data.owner.GetAccuracyMultiplier());
-            if (Physics.Raycast(data.muzzle.position, shootDirection, out hit, raycastData.range, ~data.ignoreLayers))
+            if (shootDirection.magnitude > 0 && Physics.Raycast(data.muzzle.position, shootDirection, out hit, raycastData.range, ~data.ignoreLayers))
             {
                 if (hit.collider.gameObject.layer != data.myPlayerLayer && hit.collider.gameObject.GetComponent<HitBox>())
                 {

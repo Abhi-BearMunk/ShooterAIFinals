@@ -113,6 +113,11 @@ public class Weapon : MonoBehaviour {
         }
     }
 
+    public bool IsReloading()
+    {
+        return reloading;
+    }
+
     protected virtual void LaunchProjectile(){}
 
     private void Shoot()
