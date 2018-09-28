@@ -122,6 +122,17 @@ public class Player : MonoBehaviour {
         navAgent.SetDestination(destination);
     }
 
+    //AI
+    public List<T> GetDetectedOfType<T>() where T : MonoBehaviour
+    {
+        List<T> ret = new List<T>();
+        foreach (Detector d in playerDetectors)
+        {
+            ret.AddRange(d.GetDetectedOfType<T>());
+        }       
+        return ret;
+    }
+
     // AI
     public bool RotateWeapon(Vector3 lookAtPoint, float threshold, float multiplier = 1)
     {
