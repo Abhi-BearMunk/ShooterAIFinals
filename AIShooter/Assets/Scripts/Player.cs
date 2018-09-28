@@ -129,7 +129,8 @@ public class Player : MonoBehaviour {
         foreach (Detector d in playerDetectors)
         {
             ret.AddRange(d.GetDetectedOfType<T>());
-        }       
+        }
+        ret.Sort((r1, r2) => Vector3.Distance(r1.transform.position, transform.position).CompareTo(Vector3.Distance(r2.transform.position, transform.position)));
         return ret;
     }
 
