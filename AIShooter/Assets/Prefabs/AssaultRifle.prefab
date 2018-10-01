@@ -919,6 +919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     name: GUN
+    owner: {fileID: 0}
     muzzle: {fileID: 0}
     damage: 0
     fireRate: 0
@@ -936,6 +937,7 @@ MonoBehaviour:
   reloading: 0
   raycastData:
     name: AssaultRifle
+    owner: {fileID: 0}
     muzzle: {fileID: 4268733375972930}
     damage: 50
     fireRate: 10
