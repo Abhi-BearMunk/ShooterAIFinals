@@ -26,6 +26,9 @@ public class Player : MonoBehaviour {
 
     private void Awake()
     {
+        //Hack!!!
+        GetComponent<Rigidbody>().drag = 10;
+
         foreach (Detector d in gameObject.GetComponentsInChildren<Detector>())
         {
             if(!playerDetectors.Contains(d))
@@ -140,7 +143,7 @@ public class Player : MonoBehaviour {
         navAgent.SetDestination(destination);
     }
 
-    //AI
+    // AI
     public List<T> GetDetectedOfType<T>() where T : MonoBehaviour
     {
         List<T> ret = new List<T>();
